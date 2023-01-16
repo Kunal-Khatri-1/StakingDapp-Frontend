@@ -290,11 +290,29 @@ const Staking = () => {
             Connect Metamask and{" "}
           </span>
           <button
-            className="bg-purple-500 hover:bg-purple-700 font-semibold rounded-md w-20 py-1 px-1 hover:border-[1px] border-purple-300 box-border text-white"
+            className="bg-purple-600 hover:bg-purple-800 rounded-md py-2 px-2 hover:border-[1px] border-purple-300 box-border text-white font-bold"
             onClick={() => getFiveTokens()}
           >
             GET ROTE
           </button>
+          <br />
+          <div className=" mt-2 flex flex-row justify-start gap-3 items-center">
+            <button className="bg-purple-500 hover:bg-purple-700 font-semibold rounded-md w-40 py-1 px-1 hover:border-[1px] border-purple-300 box-border text-white">
+              <a href="https://goerli.etherscan.io/address/0x29e7fC8d84238e34F00818A0139E5729E1b3aB08#code">
+                Staking Contract
+              </a>
+            </button>
+            <button className="bg-purple-500 hover:bg-purple-700 font-semibold rounded-md w-40 py-1 px-1 hover:border-[1px] border-purple-300 box-border text-white">
+              <a href="https://goerli.etherscan.io/address/0x1200e3bb6ffE79a42Abb607e9816a16607844FBb#code">
+                Token Contract
+              </a>
+            </button>
+            <button className="bg-purple-500 hover:bg-purple-700 font-semibold rounded-md w-40 py-1 px-1 hover:border-[1px] border-purple-300 box-border text-white">
+              <a href="https://github.com/Kunal-Khatri-1/StakingDapp/tree/main/StakingDapp">
+                Project GitHub
+              </a>
+            </button>
+          </div>
           <br />
           *Rewards shown based on when the page was loaded, latest balance can
           be viewed by reloading the page
