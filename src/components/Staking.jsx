@@ -102,20 +102,25 @@ const Staking = () => {
   };
 
   useEffect(() => {
-    console.log(
-      rewardTokenContract,
-      stakingContract,
-      isConnected,
-      connectedAddress
-    );
+    // console.log(
+    //   rewardTokenContract,
+    //   stakingContract,
+    //   isConnected,
+    //   connectedAddress
+    // );
     if (stakingContract && rewardTokenContract && connectedAddress) {
-      fetchRewardRate();
-      fetchTotalStakedAmount();
-      fetchUserReward();
-      fetchUserStakedAmount();
-      fetchRewardTokenBalance();
+      try {
+        fetchRewardRate();
+        fetchTotalStakedAmount();
+        fetchUserReward();
+        fetchUserStakedAmount();
+        fetchRewardTokenBalance();
 
-      setRefetchRequired(false);
+        setRefetchRequired(false);
+      } catch (error) {
+        alert("There was some error, check console");
+        console.log(error);
+      }
     } else {
       console.log("Something is off");
     }
@@ -176,14 +181,14 @@ const Staking = () => {
               <span className="text-lg font-bold">Total Staked: &nbsp;</span>
               <p className="text-lg text-pink-500">
                 {" "}
-                {isConnected && connectedAddress ? totalStakedAmount : 0} ROTE
+                {isConnected && connectedAddress ? totalStakedAmount : 0} RETO
               </p>
             </div>
             <div className="flex flex-row justify-center items-center">
               <span className="text-lg font-bold">Reward Rate: &nbsp;</span>
               <p className="text-lg text-pink-500">
                 {" "}
-                {isConnected && connectedAddress ? rewardRate : 0} ROTE/sec
+                {isConnected && connectedAddress ? rewardRate : 0} RETO/sec
               </p>
             </div>
           </div>
@@ -199,7 +204,7 @@ const Staking = () => {
                   {isConnected && connectedAddress
                     ? Math.round(userReward * 1000) / 1000
                     : 0}
-                  &nbsp; ROTE*
+                  &nbsp; RETO*
                 </p>
               </div>
               <div className="flex flex-row justify-start items-center leading-8">
@@ -211,7 +216,7 @@ const Staking = () => {
                   {isConnected && connectedAddress
                     ? Math.round(rewardTokenBalance * 1000) / 1000
                     : 0}
-                  &nbsp; ROTE
+                  &nbsp; RETO
                 </p>
               </div>
               <div className="flex flex-row justify-start items-center leading-8">
@@ -223,7 +228,7 @@ const Staking = () => {
                   {isConnected && connectedAddress
                     ? Math.round(userStakedAmount * 1000) / 1000
                     : 0}
-                  &nbsp; ROTE
+                  &nbsp; RETO
                 </p>
               </div>
             </div>
@@ -237,7 +242,7 @@ const Staking = () => {
                     id="stake"
                     min="0"
                     step="0.01"
-                    placeholder="3.14 ROTE"
+                    placeholder="3.14 RETO"
                     value={stakeAmount}
                     onChange={(event) => setStakeAmount(event.target.value)}
                     className=" bg-white text-gray-800 rounded-l-md border-none w-24 font-medium text-base px-1 py-1"
@@ -257,7 +262,7 @@ const Staking = () => {
                     id="unStake"
                     min="0"
                     step="0.01"
-                    placeholder="3.14 ROTE"
+                    placeholder="3.14 RETO"
                     value={unStakeAmount}
                     onChange={(event) => setUnStakeAmount(event.target.value)}
                     className=" bg-white text-gray-800 rounded-l-md border-none w-24 font-medium text-base px-1 py-1"
@@ -293,7 +298,7 @@ const Staking = () => {
             className="bg-purple-600 hover:bg-purple-800 rounded-md py-2 px-2 hover:border-[1px] border-purple-300 box-border text-white font-bold"
             onClick={() => getFiveTokens()}
           >
-            GET ROTE
+            GET RETO
           </button>
           <br />
           <div className=" mt-2 flex flex-row justify-start gap-3 items-center">
